@@ -66,13 +66,13 @@ const Form = () => {
         }
         formData.append("picturePath", values.picture.name);
         try{const savedUserResponse = await fetch(
-            "http://localhost:3001/auth/register",
+            "https://view-backend.onrender.com/auth/register",
             {
                 method:"POST",
                 body: formData,
             }
         );
-        const savedUser = await savedUserResponse.data;
+        const savedUser = await savedUserResponse.json;
         onSubmitProps.resetForm();
 
         if (savedUser) {
@@ -87,10 +87,11 @@ const Form = () => {
 
     
     const login = async (values, onSubmitProps) => {
-        const loggedInResponse = await axios.post("http://localhost:3001/auth/login", {
+        const loggedInResponse = await fetch("https://view-backend.onrender.com/auth/login", {
+            mmethod:"POST",
             values
         });
-        const loggedIn = await loggedInResponse.data;
+        const loggedIn = await loggedInResponse.json;
         onSubmitProps.resetForm();
         if (loggedIn) {
             dispatch(

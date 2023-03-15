@@ -54,7 +54,7 @@ import {
         
       },{body: formData});
       console.log(response.data)
-      const posts = await response.data;
+      const posts = await response.json();
       dispatch(setPosts({ posts }));
       setImage(null);
       setPost("");

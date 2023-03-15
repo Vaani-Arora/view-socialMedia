@@ -22,7 +22,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         const response = await axios.get(`http://localhost:3001/posts/${userId}/posts`, {
             headers: { Authorization: `Bearer ${token}` },
         });
-        const data = await response.json();
+        const data = await response.data;
         dispatch(setPosts({ posts: data }));
     };
 

@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
                 width={size}
                 height={size}
                 alt="user"
-                src={`https://view-backend.onrender.com/assets/${image}`}
+                src={`https://localhost:3000/assets/${image}`}
             />
         </Box>
     );
